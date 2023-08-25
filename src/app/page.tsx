@@ -1,7 +1,5 @@
 import fetchPhotos from "../../services/default";
 import PhotoContainer from "./components/PhotoContainer";
-import Link from "next/link";
-import { CAMERAS } from "../../services/cameras";
 
 export default async function Home() {
   const oportunity = await fetchPhotos(
@@ -15,20 +13,6 @@ export default async function Home() {
   const photos = curiosity.concat(oportunity);
   return (
     <main>
-      <div className='flex justify-center items-center mt-11'>
-      {CAMERAS.map((cam) => (
-        <Link className="bg-slate-400 p-2"
-          key={cam}
-          href={{
-            pathname: `/${cam}`,
-            search: cam,
-          }}
-        >
-          {cam}{" "}
-        </Link>
-      ))}
-
-      </div>
       <PhotoContainer photos={photos} />
     </main>
   );

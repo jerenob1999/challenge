@@ -17,11 +17,13 @@ function Photo({
   camera: string;
 }) {
   return (
-    <Card className="p-4 m-5 border-b-red-900 border-2">
+    <Card className="max-w-xs p-4 m-5  min-w-0	 border-2 border-x-zinc-900">
+      <div  className=" ">
       <Image   width={400} alt={image}
-     height={400}  src={image} />
-      <CardContent className="flex m-4  items-center">
-        <Typography gutterBottom variant="h5" className="p-2">
+     height={400} className=" w-full h-full object-cover aspect-[4/3] object-center"  src={image} />
+      </div>
+      <CardContent className="flex m-4  items-center justify-items-end flex-col ">
+        <Typography gutterBottom variant="h4" className="p-2">
           {rover}
         </Typography>
         <Typography gutterBottom variant="h5">
@@ -34,5 +36,7 @@ function Photo({
     </Card>
   );
 }
+
+
 
 export default Photo;

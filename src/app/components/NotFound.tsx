@@ -2,7 +2,7 @@ import React from 'react'
 
 function NotFound() {
   return (
-    <div>No photos found</div>
+    <div className='flex justify-center mt-10 font-medium  text-lg'>No photos found.</div>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Photo,Response } from "../models/photo";
+import { Photo } from "../models/photo";
 
 export default async function fetchPhotos(url: string): Promise<Photo[]> {
   const API_KEY = "mn0cL646A86fzVD3vI3MdMpphxncHeUDjNCzgPja";
