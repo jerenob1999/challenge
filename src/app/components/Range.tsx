@@ -8,7 +8,8 @@ function Range() {
   const router = useRouter();
   const params = useSearchParams();
   const camera = params.get("camera")
-  console.log(camera)
+  const sol = params.get("sol")
+  console.log(camera,sol)
 
   const handleFilterChange = (event: any) => {
     const newValue = parseInt(event.target.value);
@@ -16,7 +17,7 @@ function Range() {
   };
 
   useEffect(() => {
-    router.push(`/filters?sol=${filterValue}`);
+    router.push(`/filters?sol=${filterValue}?=camera`);
   }, [filterValue, router]);
 
   return (
