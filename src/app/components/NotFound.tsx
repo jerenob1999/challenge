@@ -1,8 +1,11 @@
 import React from 'react'
-
-function NotFound() {
+import Header from './Header'
+function NotFound({rover} : {rover:string}) {
   return (
-    <div className='flex justify-center mt-10 font-medium  text-lg'>No photos found.</div>
+    <div >
+     <Header rover={rover} />
+   <h3 className='flex justify-center mt-10 font-medium  text-lg'>No photos found.</h3>  
+     </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import fetchPhotos from "../../services/default";
+import {fetchPhotos} from "../../services/default";
 import PhotoContainer from "./components/PhotoContainer";
 import { ROVERS } from "../../services/rovers";
 import Link from "next/link";
