@@ -1,29 +1,44 @@
 "use client";
-import React,{useState} from "react";
-import { useSearchParams,useRouter } from "next/navigation";
-function Pagination({rover,pages}:{rover:string,pages:number | undefined }) {
+import React from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+
+function Paginationd({ rover }: { rover: string }) {
   const searchParams = useSearchParams();
   const existingQuery = Object.fromEntries(searchParams.entries());
-  const [currentPage,setCurrentPage] = useState(2)
   const router = useRouter();
-  const handlePage = () => {
-    setCurrentPage(currentPage + 1)
-    console.log(currentPage) 
-    router.push(`/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${currentPage}`)
-  }
+  const handlePageNext = () => {
+    const newPageNumber = parseInt(existingQuery.page) + 1;
+    router.push(
+      `/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${newPageNumber}`
+    );
+  };
+
+  console.log(existingQuery.page);
 
   const handlePagePrev = () => {
-    setCurrentPage(currentPage - 1)
-    router.push(`/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${currentPage}`)
-  }
-
+    const newPageNumber = parseInt(existingQuery.page) - 1;
+    router.push(
+      `/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${newPageNumber}`
+    );
+  };
 
   return (
     <div>
-      <button onClick={handlePagePrev}>{"<"}</button>
-      <button onClick={handlePage} >{">"}</button>
+      <button
+        className={`${existingQuery.page === "1" ? "bg-gray-500" : "bg-blue-500"} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2`}
+        onClick={handlePagePrev}
+        disabled={existingQuery.page === "1" ? true : false}
+      >
+        {"Prev"}
+      </button>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
+        onClick={handlePageNext}
+      >
+        {"Next"}
+      </button>
     </div>
   );
 }
 
-export default Pagination;
+export default Paginationd;
