@@ -33,8 +33,19 @@ async function Rovers({
 
   return (
     <div>
-      <Header rover={rovers} sol={sol_max}  />
-      {response.length === 0 ? <NotFound/> : <PhotoContainer photos={response} />}
+
+<div className='flex justify-center mt-8'>
+    </div>
+    <div className="flex">
+    <div className="w-3/8 p-5">
+    <Pagination rover={rovers} />
+      <Header rover={rovers} sol={sol_max} />
+    </div>
+    <div className="w-5/8">
+      {response.length === 0 ? <NotFound /> : <PhotoContainer photos={response} />}
+    </div>
+  
+  </div>
     </div>
   );
 }

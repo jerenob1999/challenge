@@ -17,14 +17,14 @@ function Navigation() {
   const existingQuery = Object.fromEntries(searchParams.entries());
   const paremeters = `sol:${existingQuery.sol}, camera:${existingQuery.camera}`
   return (
-    <AppBar >
+    <AppBar position='relative' className='bg-black' >
         <Toolbar className="flex flex-row justify-between items-center">
-    <div className="flex">
+    <div className="">
       <Link href={"/"} className="flex text-white font-bold py-4 text-xl">
         <HomeIcon/>
       </Link>
     </div>
-    <div >
+    <div>
       {ROVERS.map((rover) => (
         <Link
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
@@ -39,13 +39,13 @@ function Navigation() {
     <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color="default"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
-          </IconButton>
+   
       <Favourites parameters={paremeters} />
+          </IconButton>
     </div>
         </Toolbar>
   </AppBar>

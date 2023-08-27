@@ -1,46 +1,58 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
 
+function Favourites({ parameters }: { parameters: string }) {
+  const [query, setQuery] = useLocalStorage("query", []);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-function Favourites({parameters}:{parameters:string}) {
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  const [query,setQuery] = useLocalStorage("query", [])
-
-
-
-
-  const handleClick = () => {
-    if (!query.includes(parameters)) {
-        const updatedItems = [...query, parameters];
-        setQuery(updatedItems);
-      }
-  }
-
-
-  const handleGet = () => {
-    const storedItem = localStorage.getItem("items");
-    console.log(query)
-  }
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleRemove = (param: string) => {
     const updatedItems = query.filter((item) => item !== param);
     setQuery(updatedItems);
-  }
+  };
 
+  const handleAdd = () => {
+    if (!query.includes(parameters)) {
+      const updatedItems = [...query, parameters];
+      setQuery(updatedItems);
+    }
+  };
 
-  return <>
-
-<button  onClick={handleClick}> add Favourite </button>
-<button onClick={handleGet} > get Favourite </button>
-<ul>
-        {query.map(item => (
-          <li key={item}>
-            {item} <button onClick={() => handleRemove(item)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-  </> 
+  return (
+    <div>
+      <Button className=" text-white" onClick={handleClick}>
+        {" "}
+        <MenuIcon />{" "}
+      </Button>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+        <MenuItem disabled={parameters.includes(undefined) ? true : false} onClick={handleAdd}>
+          add Parameters to Favourite
+        </MenuItem>
+        <ul>
+          {query.map((item) => (
+            <ListItem key={item}>
+              <ListItemText primary={item} />
+              <Button onClick={() => handleRemove(item)}>X</Button>
+            </ListItem>
+          ))}
+        </ul>
+      </Menu>
+    </div>
+  );
 }
 
 export default Favourites;
