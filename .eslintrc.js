@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
-  extends: ["eslint:recommended", "next/core-web-vitals", "prettier"],
+  extends: ["eslint:recommended", "plugin:testing-library/react", "plugin:jest-dom/recommended", "next/core-web-vitals", "prettier"],
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
