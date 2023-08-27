@@ -9,11 +9,9 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 
 
-interface QueryType {
-  parameters:string
-}
+
 function Favourites({ parameters }: { parameters: string }) {
-  const [query, setQuery] = useLocalStorage<QueryType[]>("query", []);
+  const [query, setQuery] = useLocalStorage<string[]>("query", []);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
