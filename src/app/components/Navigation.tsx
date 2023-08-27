@@ -13,7 +13,7 @@ function Navigation() {
   const existingQuery = Object.fromEntries(searchParams.entries());
   const paremeters = `sol:${existingQuery.sol}, camera:${existingQuery.camera}`;
   return (
-    <AppBar position="relative" className="bg-black">
+    <AppBar color='transparent' position="relative" className="bg-black">
       <Toolbar className="flex flex-row justify-between items-center">
         <div className="">
           <Link href={"/"} className="flex text-white font-bold py-4 text-xl">
@@ -25,7 +25,7 @@ function Navigation() {
             <Link
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
               key={rover}
-              href={`/${rover}`}
+              href={{ pathname: `/${rover}`, query: {sol: '1000', camera: 'FHAZ' , page: '1' } }}
             >
               {rover}{" "}
             </Link>
@@ -40,3 +40,16 @@ function Navigation() {
 }
 
 export default Navigation;
+
+
+
+
+// {ROVERS.map((rover) => (
+//   <Link
+//     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2"
+//     key={rover}
+//     href={`/${rover}`}
+//   >
+//     {rover}{" "}
+//   </Link>
+// ))}

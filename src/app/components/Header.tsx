@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { CAMERAS } from "../../../services/cameras";
 import { useRouter } from "next/navigation";
 
@@ -11,17 +11,15 @@ function Header({ rover, sol }: { rover: string; sol?: number }) {
   const handleFilterChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     setFilterValue(newValue);
-    router.push(`/${rover}?sol=${filterValue}&camera=${camera}&page=${page}`);
+    router.push(`/${rover}?sol=${newValue}&camera=${camera}&page=${page}`);
   };
   const handleButton = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setCamera(event.currentTarget.value);
-    router.push(`/${rover}?sol=${filterValue}&camera=${camera}&page=${page}`);
+    const newCamera = event.currentTarget.value;
+    setCamera(newCamera);
+    router.push(`/${rover}?sol=${filterValue}&camera=${newCamera}&page=${page}`);
   };
 
-  useEffect(() => {
-    router.push(`/${rover}?sol=${filterValue}&camera=${camera}&page=${page}`);
-  }, [router, filterValue, camera, rover, page]);
-
+  
   return (
     <header>
       <nav className="flex flex-col justify-center items-center p-3 mt-11">
@@ -46,7 +44,7 @@ function Header({ rover, sol }: { rover: string; sol?: number }) {
           value={filterValue}
           onChange={(e) => handleFilterChange(e)}
         />
-        <p>Sol: {filterValue}</p>
+        <p className="text-white">Sol: {filterValue}</p>
       </div>
     </header>
   );

@@ -1,9 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Navigation } from "./components";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NASA",
@@ -17,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="bg-cover bg-center  h-screen bg-[url('https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?cs=srgb&dl=pexels-francesco-ungaro-998641.jpg&fm=jpg')]">
         <Navigation />
         {children}
       </body>

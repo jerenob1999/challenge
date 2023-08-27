@@ -35,6 +35,9 @@ async function Rovers({
 
   return (
     <div>
+        <div className="flex justify-center mt-5">
+          <Pagination rover={rovers} />
+        </div>
       <div className="flex">
         <div className="w-3/8 p-5">
           <Header rover={rovers} sol={sol_max} />
@@ -44,7 +47,6 @@ async function Rovers({
       <div className="flex justify-center mt-8">
 
 
-          <Pagination rover={rovers} />
       </div>
           {response.length === 0 ? (
             <NotFound />

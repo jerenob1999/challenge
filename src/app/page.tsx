@@ -20,7 +20,7 @@ export default async function Home() {
   };
   return (
     <main>
-      <h2 className='flex justify-center text-2xl mt-5'> Latest photos from current day : {currentDate} </h2>
+      <h2 className='flex justify-center text-white text-2xl mt-5'> Latest photos from current day : {currentDate} </h2>
       <Suspense fallback={<LoadingPosts /> }>
       <PhotoContainer photos={oportunity} />
       </Suspense>
