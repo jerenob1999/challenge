@@ -2,20 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { CAMERAS } from "../../../services/cameras";
 import { useRouter } from "next/navigation";
-import { Pagination } from ".";
 
 function Header({ rover, sol }: { rover: string; sol?: number }) {
   const router = useRouter();
   const [filterValue, setFilterValue] = useState(1000);
   const [camera, setCamera] = useState("FHAZ");
-  const [page, setPage] = useState("1");
-  const handleFilterChange = (event: any) => {
+  const [page] = useState("1");
+  const handleFilterChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     setFilterValue(newValue);
     router.push(`/${rover}?sol=${filterValue}&camera=${camera}&page=${page}`);
   };
-  const handleButton = (event: any) => {
-    setCamera(event.target.value);
+  const handleButton = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setCamera(event.currentTarget.value);
     router.push(`/${rover}?sol=${filterValue}&camera=${camera}&page=${page}`);
   };
 
@@ -29,7 +28,7 @@ function Header({ rover, sol }: { rover: string; sol?: number }) {
         {CAMERAS.map((cam) => (
           <button
             className={` ${
-              camera === cam ? "text-blue-700"  : "text-gray-500"
+              camera === cam ? "text-blue-700" : "text-gray-500"
             }  hover:text-black  py-2 px-4 rounded mx-2`}
             value={cam}
             onClick={(event) => handleButton(event)}

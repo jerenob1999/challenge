@@ -1,31 +1,30 @@
-'use client'
-import { useState, useEffect } from "react";
+"use client";
+import { useState } from "react";
 
-const useLocalStorage = (key : any , defaultValue : any) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    let currentValue;
+function useLocalStorage<T>(key: string, defaultValue: T): [T, (value: T) => void] {
 
+  const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      currentValue = JSON.parse(
-        localStorage.getItem(key) || (defaultValue)
-      );
+      if (typeof window !== 'undefined') {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) as T : defaultValue;
+      }
     } catch (error) {
-      currentValue = defaultValue;
+      console.error(error);
     }
-
-    return currentValue;
+    return defaultValue;
   });
 
-  function setValue (value : any) {
+  const setValue = (value: T) => {
     try {
-       setStoredValue(value) 
-       localStorage.setItem(key, JSON.stringify(value))
+      setStoredValue(value);
+      localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
-        console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   return [storedValue, setValue];
-};
+}
 
 export default useLocalStorage;

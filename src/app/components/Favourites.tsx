@@ -8,8 +8,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 
+
+interface QueryType {
+  parameters:string
+}
 function Favourites({ parameters }: { parameters: string }) {
-  const [query, setQuery] = useLocalStorage("query", []);
+  const [query, setQuery] = useLocalStorage<QueryType[]>("query", []);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -39,11 +43,14 @@ function Favourites({ parameters }: { parameters: string }) {
         <MenuIcon />{" "}
       </Button>
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-        <MenuItem disabled={parameters.includes(undefined) ? true : false} onClick={handleAdd}>
+        <MenuItem
+          disabled={parameters.includes("undefined") ? true : false}
+          onClick={handleAdd}
+        >
           add Parameters to Favourite
         </MenuItem>
         <ul>
-          {query.map((item) => (
+          {query?.map((item) => (
             <ListItem key={item}>
               <ListItemText primary={item} />
               <Button onClick={() => handleRemove(item)}>X</Button>

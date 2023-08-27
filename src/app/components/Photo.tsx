@@ -18,10 +18,15 @@ function Photo({
 }) {
   return (
     <Card className="max-w-xs p-4 m-5  min-w-0	 border-2 border-x-zinc-900">
-      <div  className=" ">
-      <Image   width={400} alt={image}
-     height={400} className=" w-full h-full object-cover aspect-[4/3] object-center"  src={image} />
-      </div>
+  
+        <Image
+          width={400}
+          alt={image}
+          height={400}
+          className=" object-cover aspect-[4/3] object-center"
+          src={image}
+        />
+    
       <CardContent className="flex m-4  items-center justify-items-end flex-col ">
         <Typography gutterBottom variant="h4" className="p-2">
           {rover}
@@ -36,7 +41,5 @@ function Photo({
     </Card>
   );
 }
-
-
 
 export default Photo;

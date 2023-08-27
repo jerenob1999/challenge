@@ -10,7 +10,7 @@ export async function fetchPhotos(url: string): Promise<Photo[]> {
     if (response.ok) {
       const photosData = await response.json();
       const photos: Photo[] = photosData.photos;
-      return photos
+      return photos;
     } else {
       throw new Error(`Request failed with status: ${response.status}`);
     }
@@ -19,8 +19,7 @@ export async function fetchPhotos(url: string): Promise<Photo[]> {
   }
 }
 
-
-export async function fetchManifest(url:string): Promise<Manifest> {
+export async function fetchManifest(url: string): Promise<Manifest> {
   const API_KEY = "mn0cL646A86fzVD3vI3MdMpphxncHeUDjNCzgPja";
   const URL = url + API_KEY;
 
@@ -28,7 +27,7 @@ export async function fetchManifest(url:string): Promise<Manifest> {
     const response = await fetch(URL);
     if (response.ok) {
       const manifest = await response.json();
-      return manifest
+      return manifest;
     } else {
       throw new Error(`Request failed with status: ${response.status}`);
     }

@@ -10,11 +10,16 @@ function PhotoContainer({ photos }: Props) {
   return (
     <div className="flex justify-center flex-wrap mt-14">
       {photos.map((p) => (
-        <Photo key={p.id} date={p.earth_date} camera={p.camera.full_name} rover={p.rover.name} image={p.img_src}/>
+        <Photo
+          key={p.id}
+          date={p.earth_date}
+          camera={p.camera.full_name}
+          rover={p.rover.name}
+          image={p.img_src}
+        />
       ))}
     </div>
   );
 }
 
 export default PhotoContainer;
-

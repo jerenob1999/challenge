@@ -1,6 +1,1 @@
-export const ROVERS = [
- "Curiosity",
- "Opportunity",
- "Spirit"
-  ];
-  
+export const ROVERS = ["Curiosity", "Opportunity", "Spirit"];

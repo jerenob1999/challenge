@@ -9,7 +9,7 @@ function Paginationd({ rover }: { rover: string }) {
   const handlePageNext = () => {
     const newPageNumber = parseInt(existingQuery.page) + 1;
     router.push(
-      `/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${newPageNumber}`
+      `/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${newPageNumber}`,
     );
   };
 
@@ -18,14 +18,16 @@ function Paginationd({ rover }: { rover: string }) {
   const handlePagePrev = () => {
     const newPageNumber = parseInt(existingQuery.page) - 1;
     router.push(
-      `/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${newPageNumber}`
+      `/${rover}?sol=${existingQuery.sol}&camera=${existingQuery.camera}&page=${newPageNumber}`,
     );
   };
 
   return (
     <div>
       <button
-        className={`${existingQuery.page === "1" ? "bg-gray-500" : "bg-blue-500"} bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2`}
+        className={`${
+          existingQuery.page === "1" ? "bg-gray-500" : "bg-blue-500"
+        } bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-2`}
         onClick={handlePagePrev}
         disabled={existingQuery.page === "1" ? true : false}
       >
