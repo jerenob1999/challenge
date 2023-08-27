@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["mars.nasa.gov", "mars.jpl.nasa.gov"],
+    domains: ["mars.nasa.gov", "mars.jpl.nasa.gov","images.pexels.com"],
   },
 };
 

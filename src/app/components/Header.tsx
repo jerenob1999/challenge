@@ -26,8 +26,8 @@ function Header({ rover, sol }: { rover: string; sol?: number }) {
         {CAMERAS.map((cam) => (
           <button
             className={` ${
-              camera === cam ? "text-blue-700" : "text-gray-500"
-            }  hover:text-black  py-2 px-4 rounded mx-2`}
+              camera === cam ? "text-gray-400" : "text-white"
+            }  hover:text-gray-400  py-2 px-4 rounded mx-2`}
             value={cam}
             onClick={(event) => handleButton(event)}
             key={cam}

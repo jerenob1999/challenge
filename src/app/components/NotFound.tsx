@@ -1,7 +1,7 @@
 import React from "react";
 function NotFound() {
   return (
-    <h3 className=" font-medium  text-lg flex justify-center flex-wrap mt-14">
+    <h3 className=" font-medium text-white text-lg flex justify-around flex-wrap mt-14">
       No photos found.
     </h3>
   );
