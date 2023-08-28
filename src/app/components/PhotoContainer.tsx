@@ -8,7 +8,10 @@ interface Props {
 
 function PhotoContainer({ photos }: Props) {
   return (
-    <div  data-testid="container" className="flex justify-center flex-wrap mt-14">
+    <div
+      data-testid="container"
+      className="flex justify-center flex-wrap mt-14"
+    >
       {photos.map((p) => (
         <Photo
           key={p.id}

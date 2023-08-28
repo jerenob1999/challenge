@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import { render, screen } from "@testing-library/react";
-import { Navigation, Photo, Header,Pagination } from "@/app/components";
+import { Navigation, Photo, Header, Pagination } from "@/app/components";
 import { MOCKED_PHOTOS } from "../__mocks__";
 import userEvent from "@testing-library/user-event";
 import { useRouter } from "next/navigation";
@@ -20,17 +20,17 @@ describe("Navigation component", () => {
     const mytest = screen.getAllByTestId("link");
     expect(mytest[0]).toHaveAttribute(
       "href",
-      "/Curiosity?sol=1000&camera=FHAZ&page=1"
+      "/Curiosity?sol=1000&camera=FHAZ&page=1",
     );
 
     expect(mytest[1]).toHaveAttribute(
       "href",
-      "/Opportunity?sol=1000&camera=FHAZ&page=1"
+      "/Opportunity?sol=1000&camera=FHAZ&page=1",
     );
 
     expect(mytest[2]).toHaveAttribute(
       "href",
-      "/Spirit?sol=1000&camera=FHAZ&page=1"
+      "/Spirit?sol=1000&camera=FHAZ&page=1",
     );
   });
 
@@ -51,7 +51,7 @@ describe("Photo component", () => {
     const { name: camera } = photo.camera;
     const { name: rover } = photo.rover;
     render(
-      <Photo image={img_src} rover={rover} camera={camera} date={earth_date} />
+      <Photo image={img_src} rover={rover} camera={camera} date={earth_date} />,
     );
 
     const image = screen.getByAltText(img_src);
@@ -99,7 +99,6 @@ describe("Header component", () => {
   // });
 });
 
-
 describe("Pagination component", () => {
   it("should render camera buttons correctly", () => {
     render(<Pagination rover="Spirit" />);
@@ -109,7 +108,7 @@ describe("Pagination component", () => {
 
   it("should redirect to another camera", async () => {
     const push = jest.fn();
-  
+
     (useRouter as jest.Mock).mockImplementation(() => ({
       push,
     }));
@@ -117,8 +116,7 @@ describe("Pagination component", () => {
     const user = userEvent.setup();
     render(<Pagination rover="Curiosity" />);
     await user.click(screen.getByText("Next"));
-    console.log(screen.getByText("Next"))
+    console.log(screen.getByText("Next"));
     expect(push).toHaveBeenCalledWith("/Curiosity?sol=1000&camera=FHAZ&page=2");
   });
-
-    }) 
+});

@@ -1,4 +1,4 @@
-import {  render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 import { getLatestPhoto } from "../utils/getLatestPhotos";
 import { MOCKED_PHOTOS, MOCKED_PHOTO_MANIFEST } from "../__mocks__";
@@ -32,7 +32,7 @@ describe("Home Page", () => {
     const mockCurrentDate = new Date().getDate();
     const photos = getLatestPhoto(
       mockCurrentDate,
-      MOCKED_PHOTO_MANIFEST.photo_manifest.photos
+      MOCKED_PHOTO_MANIFEST.photo_manifest.photos,
     );
     expect(photos).toBe("2023-08-22");
 
@@ -41,13 +41,11 @@ describe("Home Page", () => {
 
     const heading = screen.getByTestId("heading");
     expect(heading).toHaveTextContent(
-      `Latest photos from current day : ${mockCurrentDate}`
+      `Latest photos from current day : ${mockCurrentDate}`,
     );
-
   });
 
   it("should render photo container", async () => {
-
     const jsx = await Home();
     render(jsx);
 
@@ -56,57 +54,53 @@ describe("Home Page", () => {
   });
 });
 
-
 describe("Rover Page", () => {
-  it('should contain PhotoContainer', async () => {
+  it("should contain PhotoContainer", async () => {
     const params = {
-      rovers: "Curiosity"
+      rovers: "Curiosity",
     };
-    
+
     const searchParams = {
       sol: "2000",
       camera: "NAVCAM",
       page: "2",
     };
-    const jsx = await Rovers({params,searchParams});
+    const jsx = await Rovers({ params, searchParams });
     render(jsx);
 
     const container = screen.getByTestId("container");
     expect(container).toBeInTheDocument();
-  })
-  it('should contain a Header', async () => {
+  });
+  it("should contain a Header", async () => {
     const params = {
-      rovers: "Curiosity"
+      rovers: "Curiosity",
     };
-    
+
     const searchParams = {
       sol: "2000",
       camera: "NAVCAM",
       page: "2",
     };
-    const jsx = await Rovers({params,searchParams});
+    const jsx = await Rovers({ params, searchParams });
     render(jsx);
 
     const header = screen.getByTestId("header");
     expect(header).toBeInTheDocument();
-  })
+  });
 
-
-  it('should not contain notFound', async () => {
+  it("should not contain notFound", async () => {
     const params = {
-      rovers: "Curiosity"
+      rovers: "Curiosity",
     };
-    
+
     const searchParams = {
       sol: "2000",
       camera: "NAVCAM",
       page: "2",
     };
-    const jsx = await Rovers({params,searchParams});
+    const jsx = await Rovers({ params, searchParams });
     render(jsx);
 
-    expect(() => screen.getByText(/No photos found./i)).toThrow()
-  })
-
-
-})
+    expect(() => screen.getByText(/No photos found./i)).toThrow();
+  });
+});

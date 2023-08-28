@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Navigation } from "./components";
 
-
 export const metadata: Metadata = {
   title: "NASA",
   description: "App that shows photos from Mars",

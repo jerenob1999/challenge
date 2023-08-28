@@ -24,17 +24,17 @@ async function Rovers({
   const response = await fetchPhotos(
     `https://api.nasa.gov/mars-photos/api/v1/rovers/${rovers}/photos?camera=${camera}&sol=${sol}&page=${
       page === undefined ? 1 : page
-    }&api_key=`
+    }&api_key=`,
   );
 
   const manifest = await fetchManifest(
-    `https://api.nasa.gov/mars-photos/api/v1/manifests/${rovers}?api_key=`
+    `https://api.nasa.gov/mars-photos/api/v1/manifests/${rovers}?api_key=`,
   );
 
   const sol_max = manifest.photo_manifest.max_sol;
 
   return (
-    <div >
+    <div>
       <div className="flex justify-center mt-5">
         <Pagination rover={rovers} />
       </div>
