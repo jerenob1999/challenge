@@ -2,7 +2,7 @@ import React from "react";
 import { fetchPhotos, fetchManifest } from "../../../services/default";
 import { Header, NotFound, PhotoContainer, Pagination } from "../components";
 
-interface Props {
+interface PropsParams {
   rovers: string;
 }
 
@@ -15,7 +15,7 @@ async function Rovers({
   params,
   searchParams,
 }: {
-  params: Props;
+  params: PropsParams;
   searchParams: Props;
 }) {
   const { rovers } = params;
@@ -34,7 +34,7 @@ async function Rovers({
   const sol_max = manifest.photo_manifest.max_sol;
 
   return (
-    <div>
+    <div >
       <div className="flex justify-center mt-5">
         <Pagination rover={rovers} />
       </div>
