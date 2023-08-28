@@ -35,7 +35,7 @@ function Favourites({ parameters }: { parameters: string }) {
   };
 
   return (
-    <div>
+    <div data-testid="favourites">
       <Button className=" text-white" onClick={handleClick}>
         {" "}
         <MenuIcon />{" "}
