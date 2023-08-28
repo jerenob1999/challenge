@@ -28,7 +28,7 @@ Open http://localhost:3000 in your browser to see the application.
 
 ## Tutorial
 
-####Exploring Rovers
+Exploring Rovers
 Start by clicking on any of the available rovers. This will take you to a page where you can view photos taken by that rover.
 ![Rovers](https://prnt.sc/OIHonFoYD1oM)
 
