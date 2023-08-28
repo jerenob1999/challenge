@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rover Photo Viewer
 
-## Getting Started
+This project is a Rover Photo Viewer that allows you to explore and filter photos taken by different Mars rovers.
 
-First, run the development server:
+## Installation
+
+Clone the repository to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/jerenob1999/challenge.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project directory:
+```bash
+cd challenge
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install the required dependencies:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Run the development server:
+```bash
+npm run dev
+```
+Open http://localhost:3000 in your browser to see the application.
 
-## Learn More
+## Tutorial
 
-To learn more about Next.js, take a look at the following resources:
+####Exploring Rovers
+Start by clicking on any of the available rovers. This will take you to a page where you can view photos taken by that rover.
+![Rovers](https://prnt.sc/OIHonFoYD1oM)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+####Filtering Photos
+On the rover's page, you can further refine your exploration by filtering photos based on sol (Martian day) and camera type. Click on a specific sol or camera to apply the filter.
+![Rovers](https://prnt.sc/ftjMKnoQ4rSr)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+####Filtering Photos
+If you find a set of photos that you want to revisit later, you can save them as favorites. Click on the favorite icon at the top to add the current set of filtered photos to your favorites.
+![Rovers](https://prnt.sc/0zaZooaHU18X)
 
-## Deploy on Vercel
+Managing Favorites
+To manage your saved favorites, navigate to the "Favorites" section. Here, you can view your saved sets of photos and even remove them if needed.
+![Rovers](https://prnt.sc/7oIFKER-v_Dx)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Enjoy exploring the captivating photos captured by Mars rovers!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+
+
