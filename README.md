@@ -30,7 +30,7 @@ Open http://localhost:3000 in your browser to see the application.
 
 Exploring Rovers
 Start by clicking on any of the available rovers. This will take you to a page where you can view photos taken by that rover.
-![Rovers](https://prnt.sc/OIHonFoYD1oM)
+![Rovers](/public/Rovers.png "Rovers")
 
 ####Filtering Photos
 On the rover's page, you can further refine your exploration by filtering photos based on sol (Martian day) and camera type. Click on a specific sol or camera to apply the filter.
