@@ -17,7 +17,7 @@ function Photo({
   camera: string;
 }) {
   return (
-    <Card className="max-w-xs p-4 m-5  min-w-0	 border-2 border-x-zinc-900">
+    <Card  data-testid="photo" className="max-w-xs p-4 m-5  min-w-0	 border-2 border-x-zinc-900">
   
         <Image
           width={400}

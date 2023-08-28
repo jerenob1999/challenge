@@ -3,7 +3,7 @@ import React, {  useState } from "react";
 import { CAMERAS } from "../../../services/cameras";
 import { useRouter } from "next/navigation";
 
-function Header({ rover, sol }: { rover: string; sol?: number }) {
+function Header({ rover, sol }: { rover: string; sol: number }) {
   const router = useRouter();
   const [filterValue, setFilterValue] = useState(1000);
   const [camera, setCamera] = useState("FHAZ");
@@ -21,7 +21,7 @@ function Header({ rover, sol }: { rover: string; sol?: number }) {
 
   
   return (
-    <header>
+    <header data-testid="header">
       <nav className="flex flex-col justify-center items-center p-3 mt-11">
         {CAMERAS.map((cam) => (
           <button
@@ -38,6 +38,7 @@ function Header({ rover, sol }: { rover: string; sol?: number }) {
       </nav>
       <div>
         <input
+          data-testid="solRange"
           type="range"
           min="0"
           max={sol}
